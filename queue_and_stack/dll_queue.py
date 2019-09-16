@@ -11,12 +11,12 @@ class Queue:
 
 #adds an item to the back of the queue
   def enqueue(self, value):
-    pass
+    self.storage.add_to_tail(value)
   
 #removes and returns an item from the front of the queue
   def dequeue(self):
-    pass
+    return self.storage.remove_from_head()
 
 #returns the number of items in the queue
   def len(self):
-    pass
+    return self.storage.length
