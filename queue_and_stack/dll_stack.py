@@ -8,6 +8,8 @@ class Stack:
     # Why is our DLL a good choice to store our elements?
     self.storage = DoublyLinkedList()
 
+  #I think the distinction here between queue and stack, is that stack only 
+  #operates from one side of the 'list'
   def push(self, value):
     self.storage.add_to_tail(value)
   
