@@ -57,31 +57,36 @@ class BinarySearchTree:
     #if greater than or equal --->
     #if less <---
     #If no current value and target wasn't found return false.
-    current = self.value
 
-    while current:
-      if target == current:
-        return True
-      else:
-        if target < current:
-          #go left if target is less than current
-          current = current.left
+    if self.value == target:
+      return True
+    else: 
+      if target < self.value:
+        if self.left == None:
+          return False
         else:
-          #go right
-          current = current.right
-
-    return False
+          return self.left.contains(target)
+      else:
+        if self.right == None:
+          return False
+        else:
+          return self.right.contains(target)
 
 
  # * `get_max` returns the maximum value in the binary search tree.
  # go right until you can't go right
   def get_max(self):
-    pass
+    if self.right == None:
+      return self.value
+
+    else:
+      return self.right.get_max()
+
 
   # * `for_each` performs a traversal of _every_ node in the tree, executing
   # the passed-in callback function on each tree node value. There is a myriad of ways to
   # perform tree traversal; in this case any of them should work. 
   def for_each(self, cb):
-    pass
+    
 
 
