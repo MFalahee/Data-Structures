@@ -3,6 +3,8 @@
 # from dll_queue import Queue
 # from dll_stack import Stack
 
+'''
+Lecture Notes
 
 # Questions:
 # Only ints? 
@@ -13,17 +15,34 @@
 # Need to traverse to delete
 # When deleting, the smallest child becomes parent
 
+'''
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
     self.left = None
     self.right = None
 
- # * `insert` adds the input value to the binary search tree, adhering to the
+  
+  # * `insert` adds the input value to the binary search tree, adhering to the
   # rules of the ordering of elements in a binary search tree.
   # Need to traverse to find spot to insert
+
   def insert(self, value):
-    pass
+    #recursion is our friend
+    if value < self.value:
+      if self.left == None:
+        self.left = BinarySearchTree(value)
+      else:
+        self.left.insert(value)
+      
+    else:
+      if self.right == None:
+        self.right = BinarySearchTree(value)
+      else:
+        self.right.insert(value)
+        
+    
 
 
   # * `contains` searches the binary search tree for the input value, 
@@ -31,6 +50,7 @@ class BinarySearchTree:
   # Start from root and traverse the tree
   # We can stop at the first instance of a value
   # We know it's not found if we get to a node that doesn't have children
+
   def contains(self, target):
     #compare to value
     #if value = target, return true
@@ -63,3 +83,5 @@ class BinarySearchTree:
   # perform tree traversal; in this case any of them should work. 
   def for_each(self, cb):
     pass
+
+
